@@ -7,6 +7,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {
+  MdButtonModule, MdCardModule, MdDatepickerModule, MdInputModule, MdNativeDateModule, MdRadioModule, MdSelectModule,
+  MdToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,15 @@ import {CommonModule} from '@angular/common';
     HttpModule,
     ReactiveFormsModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    MdToolbarModule,
+    MdCardModule,
+    MdButtonModule,
+    MdInputModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
+    MdRadioModule,
+    MdSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,87 @@
-<nav class="navbar fixed-top navbar-light">
-  <a class="navbar-brand" href="#">
-    <!--<img src="/assets/img/logo.png" height="30" class="d-inline-block align-top" alt="">-->
-  </a>
-</nav>
-<div class="container">
-  <div class="inner-container">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<md-toolbar color="primary" class="tool-bar">
+  <span>Angular2 Forms Component</span>
+</md-toolbar>
+<md-card class="example-card">
+  <md-card-header>
+    <!--<div md-card-avatar class="example-header-image"></div>-->
+    <!--<md-card-title>Form Data</md-card-title>-->
+    <!--<md-card-subtitle>Enter data</md-card-subtitle>-->
+  </md-card-header>
+  <md-card-content>
+    <form [formGroup]="form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-form-field class="example-full-width">
+              <input mdInput placeholder="First name" formControlName="fName">
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="example-full-width">
+              <input mdInput placeholder="Long Last Name That Will Be Truncated" formControlName="lName">
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <p>
+        <md-form-field>
+          <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" formControlName="dob">
+          <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+          <md-datepicker #picker></md-datepicker>
+        </md-form-field>
+      </p>
+
+      <p>
+        <md-radio-group class="example-radio-group" formControlName="gender">
+          <label>Select Gender</label>
+          <md-radio-button class="example-radio-button" *ngFor="let gender of genders" [value]="gender">
+            {{gender}}
+          </md-radio-button>
+        </md-radio-group>
+      </p>
+
+      <md-select placeholder="Favorite food" name="food" formControlName="food">
+        <md-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </md-option>
+      </md-select>
+
+      <p>
+        <md-form-field class="example-full-width">
+          <textarea mdInput placeholder="Address1" formControlName="address1"></textarea>
+        </md-form-field>
+        <md-form-field class="example-full-width">
+          <textarea mdInput placeholder="Address 2" formControlName="address2"></textarea>
+        </md-form-field>
+      </p>
+
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <md-form-field class="example-full-width">
+              <input mdInput placeholder="City" formControlName="city">
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="example-full-width">
+              <input mdInput placeholder="State" formControlName="state">
+            </md-form-field>
+          </td>
+          <td>
+            <md-form-field class="example-full-width">
+              <input mdInput #postalCode maxlength="5" placeholder="Postal Code" formControlName="zip">
+              <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+            </md-form-field>
+          </td>
+        </tr>
+      </table>
+
+      <div class="float-right">
+        <button md-raised-button color="primary">Submit</button>
+        <button md-raised-button color="warn">Cancel</button>
+      </div>
+
+    </form>
+  </md-card-content>
+</md-card>
